@@ -12,9 +12,7 @@
         <h1>Laravel Test</h1>
         <p>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</p>
         <p>Random number from controller is: {{ $random }}</p>
-        <p><a href="/posts/1">Post 1</a></p>
-        <p><a href="/posts/2">Post 2</a></p>
-        <p><a href="/posts/3">Post 3</a></p>
+        <p><a href="/posts">Posts</a></p>
         <p><a href="/posts/new">New post</a></p>
     </body>
 </html>
