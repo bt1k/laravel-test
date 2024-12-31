@@ -12,9 +12,12 @@ class PostController extends Controller
     /**
      * Show the most recent 10 posts.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        return view('post.index', ['posts' => Post::orderBy('id', 'desc')->take(10)->get()]);
+        return view('post.index', [
+            'posts' => Post::orderBy('id', 'desc')->take(10)->get(),
+            'status' => $request->session()->get('status')
+        ]);
     }
 
     /**
@@ -31,6 +34,7 @@ class PostController extends Controller
     public function store(Request $request): RedirectResponse
     {
         Post::create(['content' => $request->content]);
-        return redirect('/');
+        $request->session()->flash('status', 'Post successfully created');
+        return redirect('/posts');
     }
 }

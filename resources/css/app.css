@@ -6,3 +6,9 @@ td, th {
   border: 1px solid black;
   padding: 1rem;
 }
+
+.statusMessage {
+  background-color: green;
+  color: white;
+  padding: 1rem;
+}
