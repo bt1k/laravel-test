@@ -37,4 +37,12 @@ class PostController extends Controller
         $request->session()->flash('status', 'Post successfully created');
         return redirect('/posts');
     }
+
+    /**
+     * Destroy a post.
+     */
+    public function destroy(string $id)
+    {
+        Post::destroy($id);
+    }
 }
