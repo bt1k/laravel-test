@@ -9,12 +9,13 @@
         @endif
     </head>
     <body>
-        <h1>Laravel Test</h1>
-        <p>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</p>
-        <p>Random number from controller is: {{ $random }}</p>
-        <p><a href="/posts/1">Post 1</a></p>
-        <p><a href="/posts/2">Post 2</a></p>
-        <p><a href="/posts/3">Post 3</a></p>
-        <p><a href="/posts/new">New post</a></p>
+        <h1>New Post</h1>
+        <form action="/posts" method="post">
+            @csrf
+            <label>Content</label>
+            <input type="text" name="content">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
