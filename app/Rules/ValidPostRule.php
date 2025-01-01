@@ -3,9 +3,10 @@
 namespace App\Rules;
 
 use Closure;
+use App\Models\Post;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class ContentValidValue implements ValidationRule
+class ValidPostRule implements ValidationRule
 {
     /**
      * Run the validation rule.
@@ -21,6 +22,10 @@ class ContentValidValue implements ValidationRule
         );
         if ($invalid) {
             $fail('The :attribute must be the value "Hello" or "Greetings" or "Bonjour" (case sensitive).');
+        }
+        // Don't allow too many posts to be stored.
+        if (Post::count() >= 10) {
+            $fail('There are too many posts. Delete some posts until there are fewer than 10.');
         }
     }
 }
