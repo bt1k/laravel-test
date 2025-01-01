@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Rules\ContentValidValue;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -33,6 +34,9 @@ class PostController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $request->validate([
+            'content' => ['required', 'string', new ContentValidValue]
+        ]);
         Post::create(['content' => $request->content]);
         $request->session()->flash('status', 'Post successfully created');
         return redirect('/posts');

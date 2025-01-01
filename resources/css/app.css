@@ -7,8 +7,17 @@ td, th {
   padding: 1rem;
 }
 
-.statusMessage {
+.infoMessage {
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.infoMessage.error {
+  background-color: red;
+  color: white;
+}
+
+.infoMessage.okay {
   background-color: green;
   color: white;
-  padding: 1rem;
 }
