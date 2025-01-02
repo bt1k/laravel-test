@@ -10,7 +10,6 @@
     </head>
     <body>
         <h1><a href="/">Laravel Test</a></h1>
-        <p>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</p>
         <hr>
         {{ $slot }}
     </body>

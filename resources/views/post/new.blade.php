@@ -22,4 +22,5 @@
         <br>
         <input type="submit" value="Submit">
     </form>
+    <p><a href="/posts">&larr; Posts</a></p>
 </x-layout>

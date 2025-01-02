@@ -13,20 +13,20 @@ class PostController extends Controller
     /**
      * Show the most recent 10 posts.
      */
-    public function index(Request $request): View
+    public function index(): View
     {
-        return view('post.index', [
-            'posts' => Post::orderBy('id', 'desc')->take(10)->get(),
-            'status' => $request->session()->get('status')
-        ]);
+        return view('post.index', ['posts' => Post::orderBy('id', 'desc')->take(10)->get()]);
     }
 
     /**
      * Show a given post.
      */
-    public function show(string $id): View
+    public function show(Request $request, string $id): View
     {
-        return view('post.show', ['post' => Post::findOrFail($id)]);
+        return view('post.show', [
+            'post' => Post::findOrFail($id),
+            'status' => $request->session()->get('status')
+        ]);
     }
 
     /**
@@ -37,9 +37,9 @@ class PostController extends Controller
         $request->validate([
             'content' => ['required', 'string', new ValidPostRule]
         ]);
-        Post::create(['content' => $request->content]);
+        $post = Post::create(['content' => $request->content]);
         $request->session()->flash('status', 'Post successfully created');
-        return redirect('/posts');
+        return redirect('/posts/' . $post->id);
     }
 
     /**

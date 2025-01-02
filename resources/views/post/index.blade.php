@@ -1,10 +1,7 @@
 <x-layout>
     <h2>Posts</h2>
-    @isset($status)
-        <div class="infoMessage okay">{{ $status }}</div>
-    @endisset
     <p><a href="/posts/new">New post</a></p>
-    <p>Here is/are the last {{ count($posts) }} post(s):</p>
+    <p>Last {{ count($posts) }} post(s):</p>
     <table>
         <tr>
             <th>ID</th>

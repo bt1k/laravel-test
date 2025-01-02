@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -11,6 +13,10 @@ class HomeController extends Controller
      */
     public function home(): View
     {
-        return view('home', ['random' => rand()]);
+        $info = '';
+        if (App::environment('local')) {
+            $info = 'Laravel v' . Application::VERSION . ' (PHP v' . PHP_VERSION . ')';
+        }
+        return view('home', ['info' => $info]);
     }
 }
