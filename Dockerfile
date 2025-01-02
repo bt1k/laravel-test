@@ -2,6 +2,9 @@ FROM richarvey/nginx-php-fpm
 
 COPY . .
 
+# Add Node (needed for building JS/CSS assets)
+RUN apk add --no-cache nodejs npm
+
 # Image config
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
