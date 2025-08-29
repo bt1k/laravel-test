@@ -12,5 +12,9 @@
         <h1><a href="/">Laravel Test</a></h1>
         <hr>
         {{ $slot }}
+        <hr>
+        <footer>
+            <p>Made by <a href="https://bt1k.github.io" target="_blank">BT</a>.</p>
+        </footer>
     </body>
 </html>

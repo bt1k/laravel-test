@@ -1,10 +1,33 @@
+:root {
+  font-family: sans-serif;
+}
+
+html {
+  align-items: stretch;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body {
+  background-color: white;
+  margin: 0;
+  max-width: 45rem;
+  padding: 1rem;
+  width: calc(100vw - 2rem);
+}
+
 table {
   border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
 }
 
 td, th {
   border: 1px solid black;
-  padding: 1rem;
+  overflow-wrap: break-word;
+  padding: 0.5rem;
 }
 
 .infoMessage {
