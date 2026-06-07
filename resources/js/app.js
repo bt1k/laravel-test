@@ -1,5 +1,3 @@
-import './bootstrap';
-
 function registerFormHandler() {
   if (typeof deletePostForm === 'undefined')
     return;
