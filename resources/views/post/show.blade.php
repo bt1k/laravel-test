@@ -10,11 +10,7 @@
         </tr>
         <tr>
             <th>Created at</th>
-            <td>{{ $post->created_at }}</td>
-        </tr>
-        <tr>
-            <th>Updated at</th>
-            <td>{{ $post->updated_at }}</td>
+            <td>{{ $post->formattedCreationTimestamp() }}</td>
         </tr>
         <tr>
             <th>Content</th>
