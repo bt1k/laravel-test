@@ -31,6 +31,7 @@ class Post extends Model
         if ($timezone !== 'UTC') {
             $format .= ' (\U\T\CP)';
         }
+
         return $this->created_at->setTimezone($timezone)->format($format);
     }
 }

@@ -25,7 +25,7 @@ class PostController extends Controller
     {
         return view('post.show', [
             'post' => Post::findOrFail($id),
-            'status' => $request->session()->get('status')
+            'status' => $request->session()->get('status'),
         ]);
     }
 
@@ -35,11 +35,12 @@ class PostController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'content' => ['required', 'string', new ValidPostRule]
+            'content' => ['required', 'string', new ValidPostRule],
         ]);
         $post = Post::create(['content' => $request->content]);
         $request->session()->flash('status', 'Post successfully created');
-        return redirect('/posts/' . $post->id);
+
+        return redirect('/posts/'.$post->id);
     }
 
     /**

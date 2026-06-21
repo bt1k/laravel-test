@@ -15,8 +15,9 @@ class HomeController extends Controller
     {
         $info = '';
         if (App::environment('local')) {
-            $info = 'Laravel v' . Application::VERSION . ' (PHP v' . PHP_VERSION . ')';
+            $info = 'Laravel v'.Application::VERSION.' (PHP v'.PHP_VERSION.')';
         }
+
         return view('home', ['info' => $info]);
     }
 }
